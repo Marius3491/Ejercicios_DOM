@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos Interactivos</title>
+    <style>
+        /* Estilos para ocultar los elementos */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<p onclick="ocultarElemento(this)" ondblclick="eliminarElemento(this)">Elemento 1</p>
+<p onclick="ocultarElemento(this)" ondblclick="eliminarElemento(this)">Elemento 2</p>
+<p onclick="ocultarElemento(this)" ondblclick="eliminarElemento(this)">Elemento 3</p>
+
+<button onclick="reaparecerElementos()">Reaparecer</button>
+
+<script>
+    function ocultarElemento(elemento) {
+        elemento.classList.add('hidden');
+    }
+
+    function eliminarElemento(elemento) {
+        elemento.remove();
+    }
+
+    function reaparecerElementos() {
+        // Obtener todos los elementos ocultos y mostrarlos
+        const elementosOcultos = document.querySelectorAll('.hidden');
+        elementosOcultos.forEach(elemento => {
+            elemento.classList.remove('hidden');
+        });
+    }
+</script>
+
+</body>
+</html>

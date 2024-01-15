@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej10</title>
+</head>
+<body>
+<form action="#" method="post" id="formulario">
+    <p>
+        <label for="email">Ingrese email:</label>
+        <input type="email" id="email" />
+        <span id="resultado1"></span>
+    </p>
+    <p>
+        <label for="url">Ingrese sitio web:</label>
+        <input type="url" id="url" />
+        <span id="resultado2"></span>
+    </p>
+    <p>
+        <input type="submit" value="confirmar" id="confirmar" />
+    </p>
+</form>
+
+<script>
+    document.getElementById('formulario').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitar el envío del formulario por defecto
+
+        // Expresión regular para validar un formato de correo electrónico
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        let emailInput = document.getElementById('email');
+        let resultado1 = document.getElementById('resultado1');
+
+        if (!emailRegex.test(emailInput.value)) {
+            resultado1.textContent = 'Ingrese un email válido.';
+            resultado1.style.color = 'red';
+        } else {
+            resultado1.textContent = 'correcto';
+            resultado1.style.color = 'green';
+        }
+
+        // Expresión regular para validar un formato de URL
+        const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
+        let urlInput = document.getElementById('url');
+        let resultado2 = document.getElementById('resultado2');
+
+        if (!urlRegex.test(urlInput.value)) {
+            resultado2.textContent = 'Ingrese una URL válida.';
+            resultado2.style.color = 'red';
+        } else {
+            resultado2.textContent = 'correcto';
+            resultado2.style.color = 'green';
+        }
+    });
+</script>
+</body>
+</html>
+

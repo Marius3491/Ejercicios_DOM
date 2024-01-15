@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej4</title>
+</head>
+<body>
+<ul id="lista">
+    <li>Lorem ipsum dolor sit amet</li>
+    <li>Consectetuer adipiscing elit</li>
+    <li>Sed mattis enim vitae orci</li>
+    <li>Phasellus libero</li>
+    <li>Maecenas nisl arcu</li>
+</ul>
+<input type="button" value="Añadir elemento" onclick="anade();">
+
+<script>
+    function anade() {
+        // Crear un nuevo elemento li
+        let nuevoElemento = document.createElement('li');
+
+        // Agregar texto al nuevo elemento
+        let texto = document.createTextNode('Nuevo elemento añadido');
+        nuevoElemento.appendChild(texto);
+
+        // Obtener la lista existente
+        let lista = document.getElementById('lista');
+
+        // Añadir el nuevo elemento a la lista
+        lista.appendChild(nuevoElemento);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Aleatorios</title>
+    <style>
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Checkbox Aleatorios</h2>
+
+<button onclick="marcarTodos()">Marcar todos</button>
+<button onclick="desmarcarTodos()">Desmarcar todos</button>
+
+<div id="checkboxContainer"></div>
+
+<script>
+    function generarCheckbox() {
+        let container = document.getElementById("checkboxContainer");
+
+        for (let i = 1; i <= 100; i++) {
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = "checkbox" + i;
+
+            let label = document.createElement("label");
+            label.htmlFor = "checkbox" + i;
+            label.appendChild(document.createTextNode("Checkbox " + i));
+
+            container.appendChild(checkbox);
+            container.appendChild(label);
+        }
+    }
+
+    function marcarTodos() {
+        let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = true;
+        });
+    }
+
+    function desmarcarTodos() {
+        let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = false;
+        });
+    }
+
+    // Generar los checkbox al cargar la página
+    window.onload = generarCheckbox;
+</script>
+
+</body>
+</html>
